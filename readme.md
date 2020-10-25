@@ -14,7 +14,7 @@
 brew cask install chromedriver
 ```
 
-###Run the script
+### Run the script
 open the terminal in the same location as the script and run the command
 ```sh
 python3 trending.py
