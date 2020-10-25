@@ -1,10 +1,10 @@
-##This code brings relevant information from the top ten trending youtube video
+## This code brings relevant information from the top ten trending youtube video
 
-###Before starting
-####**_pipenv_**
+### Before starting
+#### **_pipenv_**
 &emsp;if you don't have it just follow the installation instructions by clicking [here](https://pypi.org/project/pipenv/)
 
-####**_ChromeDriver_**
+#### **_ChromeDriver_**
 &emsp;**_On linux_**
 &emsp;&emsp;if you don't have chromedriver, that you can download stable version [here](https://chromedriver.chromium.org/downloads) and extract the file to **_/usr/bin_**
 
