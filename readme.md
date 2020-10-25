@@ -5,10 +5,10 @@
 &emsp;if you don't have it just follow the installation instructions by clicking [here](https://pypi.org/project/pipenv/)
 
 #### **_ChromeDriver_**
-&emsp;**_On linux_**
+&emsp;**_On linux_**<br>
 &emsp;&emsp;if you don't have chromedriver, that you can download stable version [here](https://chromedriver.chromium.org/downloads) and extract the file to **_/usr/bin_**
 
-&emsp;**_On MacOS_**
+&emsp;**_On MacOS_**<br>
 &emsp;&emsp;Use the command on terminal
 ```sh
 brew cask install chromedriver
