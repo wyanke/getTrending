@@ -19,13 +19,23 @@ class Trending:
         self.link = []
         self.ten = 1
 
-    def acessMainPage(self):
+    def start(self):
+        Trending.access_main_page(self)
+        Trending.open_trending(self)
+        Trending.get_the_title_video(self)
+        Trending.get_the_channel_name(self)
+        Trending.get_the_video_length(self)
+        Trending.get_the_link_video(self)
+        Trending.get_the_views(self)
+        Trending.console_view(self)
+
+    def access_main_page(self):
         self.browser.visit('https://www.youtube.com')
 
-    def openTrending(self):
+    def open_trending(self):
         self.browser.find_by_css('a#endpoint')[1].click()
 
-    def getTitleVideo(self):
+    def get_the_title_video(self):
         videosList = self.browser.find_by_css('.title-and-badge')
         for video in videosList:
             if self.ten <= 10 and video.text != '':
@@ -33,7 +43,7 @@ class Trending:
                 self.ten += 1
         self.ten = 1
 
-    def getLinkVideo(self):
+    def get_the_link_video(self):
         videoLink = self.browser.find_by_css('.title-and-badge a')
         for link in videoLink:
             if self.ten <= 10:
@@ -41,20 +51,16 @@ class Trending:
                 self.ten += 1
         self.ten = 1
 
-    def getDurationVideo(self, flag=False):
+    def get_the_video_length(self):
         timeVideo = self.browser.find_by_css('#overlays')
         for clock in timeVideo:
             if self.ten <= 10 and clock.text != '':
                 self.timeArray.append(clock.text)
                 self.ten += 1
+                self.browser.execute_script("window.scrollTo(0, 700);")
+        self.ten = 1
 
-        self.browser.execute_script("window.scrollTo(200, document.body.scrollHeight);")
-        if flag is False:
-            Trending.getDurationVideo(self, True)
-        else:
-            self.ten = 1
-
-    def getChannelName(self):
+    def get_the_channel_name(self):
         channelName = self.browser.find_by_css('ytd-expanded-shelf-contents-renderer #text')
         for channel in channelName:
             if self.ten <= 10 and channel.text != '':
@@ -62,7 +68,7 @@ class Trending:
                 self.ten += 1
         self.ten = 1
 
-    def getTeenVideos(self):
+    def get_the_views(self):
         viewsAndDaysAgo = self.browser.find_by_css('ytd-expanded-shelf-contents-renderer #metadata-line span')
         for video in viewsAndDaysAgo:
             if self.ten <= 20 and video.text != '':
@@ -76,15 +82,7 @@ class Trending:
             self.agoArray.append(self.dataVideo[ago])
 
 
-    def viewConsole(self):
-        Trending.acessMainPage(self)
-        Trending.openTrending(self)
-        Trending.getTitleVideo(self)
-        Trending.getChannelName(self)
-        Trending.getDurationVideo(self)
-        Trending.getLinkVideo(self)
-        Trending.getTeenVideos(self)
-
+    def console_view(self):
         for list in range(0, 10):
             print(f'-'*70)
             print(f'''
@@ -97,10 +95,7 @@ class Trending:
     \033[32mLink: \033[m{self.link[list]}
             ''')
             print(f'-'*70)
-
         self.browser.quit()
 
-
-
 obj = Trending()
-obj.viewConsole()
+obj.start()
