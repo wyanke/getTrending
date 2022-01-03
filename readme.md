@@ -8,7 +8,7 @@
 &emsp;**_On MacOS_**<br>
 &emsp;&emsp;Use the command on terminal
 ```sh
-brew cask install chromedriver
+brew install chromedriver
 ```
 #### **_pipenv_**
 &emsp;if you don't have it just follow the installation instructions by clicking [here](https://pypi.org/project/pipenv/), and run these commands on the terminal

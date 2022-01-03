@@ -61,7 +61,7 @@ class Trending:
         self.ten = 1
 
     def get_the_channel_name(self):
-        channelName = self.browser.find_by_css('ytd-expanded-shelf-contents-renderer #text')
+        channelName = self.browser.find_by_css('ytd-video-meta-block.style-scope.ytd-video-renderer > div#metadata > div#byline-container > ytd-channel-name#channel-name >div#container > div#text-container > yt-formatted-string#text > a.yt-simple-endpoint.style-scope.yt-formatted-string')
         for channel in channelName:
             if self.ten <= 10 and channel.text != '':
                 self.channelArray.append(channel.text)
